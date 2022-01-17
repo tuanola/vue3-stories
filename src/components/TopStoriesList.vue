@@ -1,26 +1,37 @@
 <template>
   <div class="hello">
     <h1>List</h1>
-    <div v-for="id in topStoriesList" :key="id"> {{ id }} </div>
+    <div v-if="loading">Loading...</div>
+    <div
+        v-else
+        v-for="id in topStoriesList"
+        :key="id"
+    >
+      {{ id }}
+    </div>
   </div>
 </template>
 
 <script>
-//import { ref } from 'vue';
 import useStories from '../composables/useStories';
 
 export default {
   name: 'TopStoriesList',
   setup() {
-    const { topStoriesList, getList } = useStories();
+    const {
+        topStoriesList,
+        loading,
+        getList,
+    } = useStories();
 
     return {
-      topStoriesList,
-      getList,
+        topStoriesList,
+        loading,
+        getList,
     };
   },
   created() {
-    this.getList();
+      this.getList();
   }
 
 }
