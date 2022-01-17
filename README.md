@@ -1,4 +1,4 @@
-# vue3-hacker
+# vue3-stories
 
 ## Project setup
 ```
