@@ -12,6 +12,7 @@ export function useStories() {
             loading.value = true;
             const response = await getTopStories();
 
+            // @ts-ignore
             topStoriesList.value = parseResponse(response.data, LIST_LENGTH);
         } catch (error) {
             console.log(error);
@@ -27,10 +28,11 @@ export function useStories() {
     };
 }
 
-export const parseResponse = (response, length) => {
-    let result = [];
+export const parseResponse = (response: object, length: number) => {
+    const result = [];
 
     for( let i = 0; i < length; i++ ) {
+        // @ts-ignore
         result[i] = response[i];
     }
 

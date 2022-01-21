@@ -1,19 +1,17 @@
 <template>
-  <div>
-      <h1> Top Stories App </h1>
-      <TopStoriesList/>
-  </div>
+  <TopStoriesList/>
 </template>
 
-<script>
-import TopStoriesList from './components/TopStoriesList.vue'
+<script lang="ts">
+import { defineComponent } from 'vue';
+import TopStoriesList from './components/TopStoriesList.vue';
 
-export default {
+export default defineComponent({
   name: 'App',
   components: {
     TopStoriesList,
   }
-}
+});
 </script>
 
 <style>
