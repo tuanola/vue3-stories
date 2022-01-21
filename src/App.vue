@@ -1,5 +1,5 @@
 <template>
-  <TopStoriesList/>
+    <TopStoriesList/>
 </template>
 
 <script lang="ts">
