@@ -8,15 +8,20 @@
         :key="id"
     >
       {{ id }}
+      <StoryDetails />
     </div>
   </div>
 </template>
 
 <script>
+import StoryDetails from '@/components/StoryDetails';
 import { useStories } from '../composables/useStories';
 
 export default {
   name: 'TopStoriesList',
+  components: {
+      StoryDetails,
+  },
   setup() {
     const {
         topStoriesList,
