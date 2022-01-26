@@ -1,5 +1,5 @@
 import { ref, readonly } from 'vue';
-import { getTopStories } from '../api/stories';
+import { getTopStories, getStoryById } from '../api/stories';
 
 const loading = ref(false);
 
@@ -10,10 +10,12 @@ export function useStories() {
     const getList = async () => {
         try {
             loading.value = true;
+
             const response = await getTopStories();
+            const firstItemsIds = parseResponse(response.data, LIST_LENGTH);
 
             // @ts-ignore
-            topStoriesList.value = parseResponse(response.data, LIST_LENGTH);
+            topStoriesList.value = await getListDetails(firstItemsIds);
         } catch (error) {
             console.log(error);
         } finally {
@@ -21,10 +23,36 @@ export function useStories() {
         }
     };
 
+    const getListDetails = async (ids: number[]) => {
+        // @ts-ignore
+        const result = [];
+
+        for (let i = 0; i < ids.length; i++) {
+            const story = await getStory(ids[i]);
+
+            result.push(story);
+        }
+        // @ts-ignore
+        return result;
+    };
+
+    const getStory = async (id: number) => {
+        const story = ref({});
+
+        try {
+            const response = await getStoryById(id);
+
+            return response.data;
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return {
         topStoriesList: readonly(topStoriesList),
         loading: readonly(loading),
         getList,
+        getStory,
     };
 }
 

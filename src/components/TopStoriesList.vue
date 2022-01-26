@@ -4,11 +4,13 @@
     <div v-if="loading">Loading...</div>
     <div
         v-else
-        v-for="id in topStoriesList"
-        :key="id"
+        v-for="item in topStoriesList"
+        :key="item.id"
     >
-      {{ id }}
-      <StoryDetails />
+      {{ item.id }}
+      <StoryDetails
+          :title="item.title"
+      />
     </div>
   </div>
 </template>
