@@ -17,7 +17,7 @@
 
 <script>
 import StoryDetails from '@/components/StoryDetails';
-import { useStories } from '../composables/useStories';
+import { useStories } from '@/composables/useStories';
 
 export default {
   name: 'TopStoriesList',
