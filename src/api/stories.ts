@@ -1,15 +1,15 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://hacker-news.firebaseio.com/v0';
+const BASE_URL: string = 'https://hacker-news.firebaseio.com/v0';
 
 export const getTopStories = () => {
-    const url = `${BASE_URL}/topstories.json`;
+    const url: string = `${BASE_URL}/topstories.json`;
 
     return getData(url);
 };
 
 export const getStoryById = (id: number) => {
-    const url = `${BASE_URL}/item/${id}.json`;
+    const url: string = `${BASE_URL}/item/${id}.json`;
 
     return getData(url);
 };

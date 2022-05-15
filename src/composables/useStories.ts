@@ -4,7 +4,7 @@ import { getTopStories, getStoryById } from '../api/stories';
 const loading = ref(false);
 
 export function useStories() {
-    const LIST_LENGTH = 10;
+    const LIST_LENGTH: number = 10;
     const topStoriesList = ref([]);
 
     const getList = async () => {
