@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import TopStoriesList from './components/TopStoriesList.vue';
+import TopStoriesList from '@/components/TopStoriesList.vue';
 
 export default defineComponent({
   name: 'App',

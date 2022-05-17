@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import StoryDetails from '@/components/StoryDetails';
+import StoryDetails from '@/components/StoriesListItem';
 import { useStories } from '@/composables/useStories';
 
 export default {

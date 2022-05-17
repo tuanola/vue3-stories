@@ -2,18 +2,19 @@ import { ref, readonly } from 'vue';
 import { getTopStories, getStoryById } from '@/api/stories';
 import Story from '@/types/Story';
 
+const DEFAULT_LIST_LENGTH: number = 10;
 const loading = ref<Boolean>(false);
 
 export function useStories() {
-    const LIST_LENGTH: number = 10;
-    const topStoriesList = ref<Story[]>([]);
+    let topStoriesList = ref<Story[]>([]);
+    let listLength = ref<number>(DEFAULT_LIST_LENGTH);
 
     const getList = async () => {
         try {
             loading.value = true;
 
             const response = await getTopStories();
-            const firstItemsIds: number[] = parseResponse(response.data, LIST_LENGTH);
+            const firstItemsIds: number[] = parseResponse(response.data, listLength.value);
 
             // @ts-ignore
             topStoriesList.value = await getListDetails(firstItemsIds);

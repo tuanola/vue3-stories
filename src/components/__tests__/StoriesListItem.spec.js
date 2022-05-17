@@ -1,4 +1,4 @@
-import StoryDetails from '../StoryDetails';
+import StoryDetails from '../StoriesListItem';
 import { shallowMount } from '@vue/test-utils';
 
 describe('StoryDetails', () => {
