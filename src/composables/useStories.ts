@@ -6,8 +6,8 @@ const DEFAULT_LIST_LENGTH: number = 10;
 const loading = ref<Boolean>(false);
 
 export function useStories() {
-    let topStoriesList = ref<Story[]>([]);
-    let listLength = ref<number>(DEFAULT_LIST_LENGTH);
+    const topStoriesList = ref<Story[]>([]);
+    const listLength = ref<number>(DEFAULT_LIST_LENGTH);
 
     const getList = async () => {
         try {
@@ -54,6 +54,7 @@ export function useStories() {
     };
 
     return {
+        listLength,
         topStoriesList: readonly(topStoriesList),
         loading: readonly(loading),
         getList,

@@ -1,14 +1,17 @@
 <template>
-    <TopStoriesList/>
+  <StoriesFilter />
+  <TopStoriesList />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import StoriesFilter from '@/components/StoriesFilter.vue';
 import TopStoriesList from '@/components/TopStoriesList.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
+    StoriesFilter,
     TopStoriesList,
   }
 });

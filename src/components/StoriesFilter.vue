@@ -1,10 +1,23 @@
 <template>
-$END$
+  <div>
+    List length: {{ listLength }}
+  </div>
 </template>
 
 <script>
+import { useStories } from '@/composables/useStories';
+
 export default {
-name: "StoriesFilter"
+    name: 'StoriesFilter',
+    setup() {
+        const {
+            listLength,
+    } = useStories();
+
+    return {
+        listLength,
+    };
+  },
 }
 </script>
 
